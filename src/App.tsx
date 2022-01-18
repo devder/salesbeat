@@ -5,6 +5,7 @@ import { CountryList } from "./pages/CountryList";
 import { Navbar } from "./components/Navbar";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import "./App.scss";
+import ScrollToTop from "./components/scroll-to-top";
 
 const theme = createTheme({
   typography: {
@@ -24,10 +25,12 @@ function App() {
         <ApolloProvider client={client}>
           <Router>
             <Navbar />
-            <Routes>
-              <Route path="/" element={<Continents />} />
-              <Route path="/:continentCode" element={<CountryList />} />
-            </Routes>
+            <ScrollToTop>
+              <Routes>
+                <Route path="/" element={<Continents />} />
+                <Route path="/:continentCode" element={<CountryList />} />
+              </Routes>
+            </ScrollToTop>
           </Router>
         </ApolloProvider>
       </div>

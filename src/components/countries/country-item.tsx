@@ -31,13 +31,17 @@ export const CountryItem: React.FC<Props> = ({ country }) => {
           <Typography component="div" className="country_item_label">
             Currency -
           </Typography>
-          <Typography component="div">{currency}</Typography>
+          <Typography component="div" className="country_item_value">
+            {currency}
+          </Typography>
         </div>
         <div className="country_item_panel_row">
           <Typography component="div" className="country_item_label">
             Languages -
           </Typography>
-          <Typography component="div">{formattedLanguages}</Typography>
+          <Typography component="div" className="country_item_value">
+            {formattedLanguages}
+          </Typography>
         </div>
       </AccordionDetails>
     </Accordion>
