@@ -8,7 +8,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
-import { CountryItem } from "../components/countries/country-item";
+import { CountriesTable } from "../components/countries/countries-table";
 import { SearchInput } from "../components/search-input";
 import "../styles/countries.scss";
 
@@ -61,43 +61,38 @@ export const CountryList: React.VFC = () => {
 
   return (
     <Container>
-      <Typography variant="h4" component="div" align="center">
+      <Typography variant="h4" component="div" align="center" paragraph>
         {singleContinent.name}
       </Typography>
 
-      <Typography align="center" paragraph>
-        {singleContinent.countries.length} Countries
-      </Typography>
-
+      {/* //TODO 7: render a back button to allow the user to back to the list of continents */}
       <div className="countries_input_container">
-        {/* //TODO 7: render a back button to allow the user to back to the list of continents */}
         <Button
           variant="outlined"
           startIcon={<KeyboardBackspaceIcon />}
           sx={{ textTransform: "none" }}
           component={Link}
           to="/"
+          color="inherit"
         >
           Home
         </Button>
-
         <SearchInput onChange={handleInputChange} />
       </div>
 
-      <div className="countries_table_heading">
-        <Typography variant="h6" className="countries_table_heading_item">
-          Country
+      <div className="countries_input_container">
+        <Typography variant="h6" component="div" className="countries_table_heading">
+          {/* <Typography variant="h6" component="div"> */}
+          Countries
         </Typography>
 
-        <Typography variant="h6" className="countries_table_heading_item">
-          Capital
+        <Typography align="center" paragraph variant="h6" component="div" className="countries_table_heading">
+          {singleContinent.countries.length}
         </Typography>
       </div>
 
       {/* //TODO 6: render list of countries from the query */}
-      {filteredCountries.map((country, i) => (
-        <CountryItem key={i} country={country} />
-      ))}
+      <CountriesTable countries={filteredCountries} />
     </Container>
   );
 };

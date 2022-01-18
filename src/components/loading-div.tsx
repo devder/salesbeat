@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 export const LoadingDiv: React.VFC = () => {
   return (
     <Container sx={{ display: "flex", justifyContent: "center", marginY: "50px" }}>
-      <CircularProgress />
+      <CircularProgress color="inherit" />
     </Container>
   );
 };
