@@ -55,29 +55,31 @@ export const CountriesTable: React.FC<Props> = ({ countries }) => {
   const tableData: Array<ITableData> = countries.map(createData);
 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>Name </StyledTableCell>
-            <StyledTableCell align="right">Capital</StyledTableCell>
-            <StyledTableCell align="right">Currency</StyledTableCell>
-            <StyledTableCell align="right">Languages</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {tableData.map(row => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">{row.capital}</StyledTableCell>
-              <StyledTableCell align="right">{row.currency}</StyledTableCell>
-              <StyledTableCell align="right">{row.formattedLanguages}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <Paper sx={{ width: "100%", overflow: "hidden" }}>
+      <TableContainer sx={{ maxHeight: 540 }}>
+        <Table sx={{ minWidth: 700 }} aria-label="customized table" stickyHeader>
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Name </StyledTableCell>
+              <StyledTableCell align="right">Capital</StyledTableCell>
+              <StyledTableCell align="right">Currency</StyledTableCell>
+              <StyledTableCell align="right">Languages</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {tableData.map(row => (
+              <StyledTableRow key={row.name}>
+                <StyledTableCell component="th" scope="row">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell align="right">{row.capital}</StyledTableCell>
+                <StyledTableCell align="right">{row.currency}</StyledTableCell>
+                <StyledTableCell align="right">{row.formattedLanguages}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 };
